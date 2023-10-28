@@ -32,4 +32,20 @@ public class TaskController {
         taskList.add(task);
         return "Tarefa adicionada!";
     }
+
+    // Edita uma tarefa
+    @PostMapping("/task/edit/{id}")
+    public String editTask(@PathVariable String id,
+                           @RequestBody Task taskEdited) {
+        if (taskList.stream().anyMatch(task -> task.getId().equals(id))) {
+            taskList.stream().filter(task -> task.getId().equals(id))
+                    .findFirst().ifPresent(task -> {
+                        task.setDescription(taskEdited.getDescription());
+                        task.setExpiringDate(taskEdited.getExpiringDate());
+                        task.setDone(taskEdited.done);
+                    });
+            return "Tarefa editada!";
+        }
+        return "Tarefa não existe!";
+    }
 }
