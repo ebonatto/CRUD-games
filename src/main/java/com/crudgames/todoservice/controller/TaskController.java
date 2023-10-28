@@ -21,8 +21,9 @@ public class TaskController {
     @GetMapping("/tasks")
     public String listTasks() {
         StringBuilder allTasks = new StringBuilder();
+        allTasks.append("Lista de tarefas:");
         for (Map.Entry<String, Task> task : taskList.entrySet()) {
-            allTasks.append(String.format("%s\n\n", task.getValue()));
+            allTasks.append(String.format("\n\n%s", task.getValue()));
         }
         return allTasks.toString();
     }
