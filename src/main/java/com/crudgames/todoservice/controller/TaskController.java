@@ -40,12 +40,22 @@ public class TaskController {
     }
 
     // Edita uma tarefa
-    @PutMapping("/task/edit/{id}")
+    @PutMapping("/tasks/edit/{id}")
     public String editTask(@PathVariable String id,
                            @RequestBody Task taskEdited) {
         if (taskList.containsKey(id)) {
             taskList.put(id, taskEdited);
             return "Tarefa editada!";
+        }
+        return "Tarefa não existe!";
+    }
+
+    // Deleta uma tarefa
+    @DeleteMapping("/tasks/delete/{id}")
+    public String deleteTask(@PathVariable String id) {
+        if (taskList.containsKey(id)) {
+            taskList.remove(id);
+            return "Tarefa removida";
         }
         return "Tarefa não existe!";
     }
