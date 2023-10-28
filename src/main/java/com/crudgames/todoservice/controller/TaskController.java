@@ -22,7 +22,7 @@ public class TaskController {
     public String listTasks() {
         StringBuilder allTasks = new StringBuilder();
         for (Map.Entry<String, Task> task : taskList.entrySet()) {
-            allTasks.append(String.format("%s\n\n", task));
+            allTasks.append(String.format("%s\n\n", task.getValue()));
         }
         return allTasks.toString();
     }
