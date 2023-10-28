@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Task {
-    public String id;
-    public String description;
-    public String expiringDate;
-    public boolean done;
+    private String id;
+    private String description;
+    private String expiringDate;
+    private boolean done;
 
     @Override
     public String toString() {
