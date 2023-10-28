@@ -39,7 +39,7 @@ public class TaskController {
     }
 
     // Edita uma tarefa
-    @PostMapping("/task/edit/{id}")
+    @PutMapping("/task/edit/{id}")
     public String editTask(@PathVariable String id,
                            @RequestBody Task taskEdited) {
         if (taskList.containsKey(id)) {
